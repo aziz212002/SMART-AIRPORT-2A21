@@ -34,6 +34,7 @@ void passager::setnb_valises(int nb_valises){this->nb_valises=nb_valises;}
 void passager::setmail(QString mail){this->mail=mail;}
 
 
+
 bool passager::ajouter()
 {
             QSqlQuery query;
@@ -53,6 +54,7 @@ bool passager::ajouter()
 
     return   query.exec();
 }
+
 bool passager::supprimer(int passeport_passager)
 {
      QSqlQuery query;
@@ -60,6 +62,7 @@ bool passager::supprimer(int passeport_passager)
      query.bindValue(":passeport_passager", passeport_passager);
 
 return   query.exec();
+
 
 }
 QSqlQueryModel* passager::afficher()
