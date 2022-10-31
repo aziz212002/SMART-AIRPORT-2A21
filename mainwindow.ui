@@ -24,195 +24,8 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
-    <widget class="QWidget" name="tab_3">
-     <attribute name="title">
-      <string>Acceuil</string>
-     </attribute>
-     <widget class="QGroupBox" name="groupBox_9">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>40</y>
-        <width>811</width>
-        <height>391</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Acceuil</string>
-      </property>
-      <widget class="QPushButton" name="pushButton_11">
-       <property name="geometry">
-        <rect>
-         <x>620</x>
-         <y>180</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Mail</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>50</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Ajouter</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_19">
-       <property name="geometry">
-        <rect>
-         <x>350</x>
-         <y>50</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Afficher</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="geometry">
-        <rect>
-         <x>620</x>
-         <y>50</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Modifier</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_20">
-       <property name="geometry">
-        <rect>
-         <x>350</x>
-         <y>180</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Trier et rechercher</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_21">
-       <property name="geometry">
-        <rect>
-         <x>350</x>
-         <y>310</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>carte</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>180</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Supprimer</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_4">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>310</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>PDF</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_12">
-       <property name="geometry">
-        <rect>
-         <x>620</x>
-         <y>310</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>QR code</string>
-       </property>
-      </widget>
-      <widget class="Line" name="line_6">
-       <property name="geometry">
-        <rect>
-         <x>179</x>
-         <y>20</y>
-         <width>181</width>
-         <height>351</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-      <widget class="Line" name="line_7">
-       <property name="geometry">
-        <rect>
-         <x>452</x>
-         <y>20</y>
-         <width>181</width>
-         <height>351</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-      <widget class="Line" name="line_8">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>85</y>
-         <width>791</width>
-         <height>91</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-      <widget class="Line" name="line_9">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>210</y>
-         <width>791</width>
-         <height>101</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </widget>
-    </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">
       <string>Ajouter</string>
@@ -220,7 +33,7 @@
      <widget class="QGroupBox" name="groupBox_5">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>20</y>
         <width>471</width>
         <height>321</height>
@@ -268,7 +81,7 @@
         <string>Age</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_nom_3">
+      <widget class="QLineEdit" name="lineEdit_nom">
        <property name="geometry">
         <rect>
          <x>110</x>
@@ -278,7 +91,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_prenom_3">
+      <widget class="QLineEdit" name="lineEdit_prenom">
        <property name="geometry">
         <rect>
          <x>110</x>
@@ -288,7 +101,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_passport_3">
+      <widget class="QLineEdit" name="lineEdit_valise">
        <property name="geometry">
         <rect>
          <x>340</x>
@@ -324,7 +137,7 @@
         <string>Nb de valises</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_vol_3">
+      <widget class="QLineEdit" name="lineEdit_cin">
        <property name="geometry">
         <rect>
          <x>110</x>
@@ -334,7 +147,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_valise_3">
+      <widget class="QLineEdit" name="lineEdit_pass">
        <property name="geometry">
         <rect>
          <x>110</x>
@@ -344,7 +157,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_4">
+      <widget class="QLineEdit" name="lineEdit_porte">
        <property name="geometry">
         <rect>
          <x>340</x>
@@ -354,20 +167,10 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_5">
+      <widget class="QLineEdit" name="lineEdit_siege">
        <property name="geometry">
         <rect>
          <x>340</x>
-         <y>110</y>
-         <width>111</width>
-         <height>21</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QDateEdit" name="dateEdit_3">
-       <property name="geometry">
-        <rect>
-         <x>110</x>
          <y>110</y>
          <width>111</width>
          <height>21</height>
@@ -413,57 +216,11 @@
         <string>CIN</string>
        </property>
       </widget>
-      <widget class="QDateEdit" name="dateEdit_4">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>190</y>
-         <width>111</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QTimeEdit" name="timeEdit_2">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>230</y>
-         <width>111</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_25">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>190</y>
-         <width>81</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Date du vol</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_26">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>230</y>
-         <width>81</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Heure du vol</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_27">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>230</y>
+         <x>250</x>
+         <y>190</y>
          <width>81</width>
          <height>21</height>
         </rect>
@@ -472,17 +229,17 @@
         <string>Mail</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_6">
+      <widget class="QLineEdit" name="lineEdit_mail">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>230</y>
+         <x>340</x>
+         <y>190</y>
          <width>111</width>
          <height>22</height>
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_13">
+      <widget class="QLineEdit" name="lineEdit_vol">
        <property name="geometry">
         <rect>
          <x>340</x>
@@ -505,7 +262,7 @@
         <string>Num portail</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_7">
+      <widget class="QPushButton" name="pushButton_affiche">
        <property name="geometry">
         <rect>
          <x>140</x>
@@ -518,7 +275,7 @@
         <string>Afficher</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="pb_ajouter">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -531,7 +288,7 @@
         <string>Ajouter</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_22">
+      <widget class="QPushButton" name="pb_modif">
        <property name="geometry">
         <rect>
          <x>250</x>
@@ -544,7 +301,7 @@
         <string>Modifier</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_23">
+      <widget class="QPushButton" name="pb_supp">
        <property name="geometry">
         <rect>
          <x>360</x>
@@ -554,7 +311,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Suprimer</string>
+        <string>Supprimer</string>
        </property>
       </widget>
       <widget class="Line" name="line">
@@ -563,11 +320,21 @@
          <x>225</x>
          <y>20</y>
          <width>21</width>
-         <height>241</height>
+         <height>201</height>
         </rect>
        </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_age">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>110</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
        </property>
       </widget>
      </widget>
@@ -583,75 +350,15 @@
       <property name="title">
        <string>Tableau des passagers</string>
       </property>
-      <widget class="QTableWidget" name="tableWidget">
+      <widget class="QTableView" name="tablePassager">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>30</x>
          <y>30</y>
-         <width>401</width>
+         <width>381</width>
          <height>271</height>
         </rect>
        </property>
-       <column>
-        <property name="text">
-         <string>Nom</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Prénom</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Age</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>CIN</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Passeport</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Nouvelle colonne</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Portail</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Vol</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Siege</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Nouvelle colonne</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Date</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Heure</string>
-        </property>
-       </column>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_2">
