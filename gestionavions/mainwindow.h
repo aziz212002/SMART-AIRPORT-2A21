@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-// second commit nn
+
 #include <QMainWindow>
 #include <QApplication>
 #include <QMessageBox>
@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public://mm
+public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
