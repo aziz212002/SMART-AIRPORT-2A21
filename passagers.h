@@ -2,6 +2,7 @@
 #define PASSAGERS_H
 #include <QString>
 #include<QSqlQueryModel>
+#include <QTableView>
 
 class passager
 {
@@ -28,12 +29,16 @@ public:
     void setnum_siege(QString);
     void setnb_valises(int);
     void setmail(QString);
+
     bool ajouter();
     QSqlQueryModel* afficher();
     bool supprimer(int passeport_passager);
     bool modifier();
-
-
+    QSqlQueryModel * trieage();
+    QSqlQueryModel * trievalise();
+    QSqlQueryModel * triealphabet();
+    void recherche(QTableView * table, QString);
+    void telechargerPDF();
 
 
 private:

@@ -164,7 +164,7 @@ void passager :: recherche(QTableView * table ,QString rech )
     table->show();
 
 }
-
+/*
 void  passager ::telechargerPDF()
 {
 
@@ -184,26 +184,31 @@ void  passager ::telechargerPDF()
                          painter.drawText(2700,3300,"Age");
                          painter.drawText(4000,3300,"CIN");
                          painter.drawText(6500,3300,"Passeport");
-                         painter.drawText(7700,3300,"");
-
+                         painter.drawText(7700,3300,"Num portail");
+                         painter.drawText(7700,3300,"Num vol");
+                         painter.drawText(7700,3300,"Num siege");
                          painter.drawText(4000,3300,"Nb valises");
-                         painter.drawText(4000,3300,"EMAIL");
+                         painter.drawText(4000,3300,"Mail");
 
 
                          QSqlQuery query;
-                         //query.prepare("select * from joueurs where id='"+val+"'");
-                         query.prepare("select * from sponsor");
+                         //query.prepare("select * from passager where passeport_passager='"+val+"'");
+                         query.prepare("select * from passager");
                          query.exec();
                          while (query.next())
                          {
-                             painter.drawText(200,i,query.value(1).toString());
-                             painter.drawText(1300,i,query.value(0).toString());
+                             painter.drawText(200,i,query.value(0).toString());
+                             painter.drawText(1300,i,query.value(1).toString());
                              painter.drawText(2700,i,query.value(2).toString());
                              painter.drawText(4000,i,query.value(3).toString());
                              painter.drawText(6500,i,query.value(4).toString());
                              painter.drawText(7700,i,query.value(5).toString());
-
+                             painter.drawText(0200,i,query.value(6).toString());
+                             painter.drawText(1300,i,query.value(7).toString());
+                             painter.drawText(2700,i,query.value(8).toString());
+                             painter.drawText(4000,i,query.value(9).toString());
 
 
                             i = i + 500;
                          }}
+*/
