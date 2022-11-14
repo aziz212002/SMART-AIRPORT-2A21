@@ -1,7 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <passagers.h>
+#include<dialog.h>
+#include <QDialog>
 #include <QIntValidator>
+#include<QSqlQuery>
+#include<passagers.h>
+#include<QPainter>
+#include<QtSvg/QGraphicsSvgItem>
+#include<qrcode.h>
 #include <QMessageBox>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,6 +17,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->lineEdit_pass->setValidator (new QIntValidator(0, 999999999, this));
     ui->tablePassager->setModel(P.afficher());
+    QPixmap pixPDF("C:/Users/toufa/OneDrive/Bureau/Projet QT/Icons/pdf1.ico");
+         ui->label_pdf->setPixmap(pixPDF);
+    QPixmap pixmap("C:/Users/toufa/OneDrive/Bureau/Projet QT/Icons/map1.ico");
+         ui->label_map->setPixmap(pixmap);
+    QPixmap pixmail("C:/Users/toufa/OneDrive/Bureau/Projet QT/Icons/mail1.ico");
+         ui->label_mail->setPixmap(pixmail);
+
 }
 
 MainWindow::~MainWindow()
@@ -29,9 +43,18 @@ void MainWindow::on_pb_ajouter_clicked()
     QString num_siege=ui->lineEdit_siege->text();
     int nb_valises=ui->lineEdit_valise->text().toInt();
     QString mail=ui->lineEdit_mail->text();
+    QString type_passager=ui->comboBox_type->currentText();
+    int poids_totale=ui->lineEdit_poids->text().toInt();
 
-    passager P (nom_passager,prenom_passager,age_passager,cin_passager,passeport_passager,num_portail,num_vol,num_siege,nb_valises,mail);
+    passager P (nom_passager,prenom_passager,age_passager,cin_passager,passeport_passager,num_portail,num_vol,num_siege,nb_valises,mail,type_passager,poids_totale);
 bool test=P.ajouter();
+
+if(P.verifieremail(mail)==0 )
+{test=false;
+    QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                       QObject::tr("ad.email incorrecte.\n"
+
+                                   "Click Cancel to exit."), QMessageBox::Cancel);}
  if(test)
  {    ui->tablePassager->setModel(P.afficher());
      QMessageBox::information(nullptr, QObject::tr("ok"),
@@ -80,8 +103,10 @@ void MainWindow::on_pb_modif_clicked()
     QString num_siege=ui->lineEdit_siege->text();
     int nb_valises=ui->lineEdit_valise->text().toInt();
     QString mail=ui->lineEdit_mail->text();
+    QString type_passager=ui->comboBox_type->currentText();
+    int poids_totale=ui->lineEdit_poids->text().toInt();
 
-    passager P (nom_passager,prenom_passager,age_passager,cin_passager,passeport_passager,num_portail,num_vol,num_siege,nb_valises,mail);
+    passager P (nom_passager,prenom_passager,age_passager,cin_passager,passeport_passager,num_portail,num_vol,num_siege,nb_valises,mail,type_passager,poids_totale);
 bool test=P.modifier();
         if(test){
             ui->tablePassager->setModel(P.afficher());
@@ -96,22 +121,20 @@ bool test=P.modifier();
                                     "Click Cancel to exit."), QMessageBox::Cancel);
 }
 
-void MainWindow::on_radioB_age_clicked()
+void MainWindow::on_checkBox_age_clicked()
 {
  ui->tablePassager->setModel(P.trieage());
 }
 
-
-void MainWindow::on_radioB_alphabet_clicked()
+void MainWindow::on_checkBox_alphabet_clicked()
 {
   ui->tablePassager->setModel(P.triealphabet());
 }
 
-void MainWindow::on_radioB_nbvalises_clicked()
+void MainWindow::on_checkBox_3_clicked()
 {
-    ui->tablePassager->setModel(P.trievalise());
+  ui->tablePassager->setModel(P.trievalise());
 }
-
 
 void MainWindow::on_tablePassager_clicked(const QModelIndex &index)
 {
@@ -125,6 +148,30 @@ void MainWindow::on_tablePassager_clicked(const QModelIndex &index)
     ui->lineEdit_siege->setText(ui->tablePassager->model()->data(ui->tablePassager->model()->index(index.row(),7)).toString());
     ui->lineEdit_valise->setText(ui->tablePassager->model()->data(ui->tablePassager->model()->index(index.row(),8)).toString());
     ui->lineEdit_mail->setText(ui->tablePassager->model()->data(ui->tablePassager->model()->index(index.row(),9)).toString());
+    ui->comboBox_type->setCurrentText(ui->tablePassager->model()->data(ui->tablePassager->model()->index(index.row(),10)).toString());
+    ui->lineEdit_poids->setText(ui->tablePassager->model()->data(ui->tablePassager->model()->index(index.row(),11)).toString());
+    QString text ="Details du passager : \nNom:  "+ui->tablePassager->model()->data(ui->tablePassager->model()->index(ui->tablePassager->currentIndex().row(),0)).toString()
+                +"\nPrénom:  "+ui->tablePassager->model()->data(ui->tablePassager->model()->index(ui->tablePassager->currentIndex().row(),1)).toString()
+                +"\nAge:  "+ui->tablePassager->model()->data(ui->tablePassager->model()->index(ui->tablePassager->currentIndex().row(),2)).toString()
+                +"\nCIN:  "+ui->tablePassager->model()->data(ui->tablePassager->model()->index(ui->tablePassager->currentIndex().row(),3)).toString()
+                +"\nPasseport:  "+ui->tablePassager->model()->data(ui->tablePassager->model()->index(ui->tablePassager->currentIndex().row(),4)).toString()
+                +"\nNum portail"+ui->tablePassager->model()->data(ui->tablePassager->model()->index(ui->tablePassager->currentIndex().row(),5)).toString()
+                +"\nNum vol"+ui->tablePassager->model()->data(ui->tablePassager->model()->index(ui->tablePassager->currentIndex().row(),6)).toString()
+                +"\nNum siège"+ui->tablePassager->model()->data(ui->tablePassager->model()->index(ui->tablePassager->currentIndex().row(),7)).toString()
+                +"\nNb valises"+ui->tablePassager->model()->data(ui->tablePassager->model()->index(ui->tablePassager->currentIndex().row(),8)).toString()
+                +"\nBoite mail"+ui->tablePassager->model()->data(ui->tablePassager->model()->index(ui->tablePassager->currentIndex().row(),9)).toString()
+                +"\nType passager"+ui->tablePassager->model()->data(ui->tablePassager->model()->index(ui->tablePassager->currentIndex().row(),10)).toString();
+        using namespace qrcodegen;
+          // Create the QR Code object
+          QrCode qr = QrCode::encodeText( text.toUtf8().data(), QrCode::Ecc::MEDIUM );
+          qint32 sz = qr.getSize();
+          QImage im(sz,sz, QImage::Format_RGB32);
+            QRgb black = qRgb(  0,  0,  0);
+            QRgb white = qRgb(255,255,255);
+          for (int y = 0; y < sz; y++)
+            for (int x = 0; x < sz; x++)
+              im.setPixel(x,y,qr.getModule(x, y) ? black : white );
+          ui->qrcode_2->setPixmap( QPixmap::fromImage(im.scaled(110,110,Qt::KeepAspectRatio,Qt::FastTransformation),Qt::MonoOnly) );
 }
 
 
@@ -138,5 +185,34 @@ void MainWindow::on_lineEdit_recherche_textChanged(const QString &arg1)
         {
             ui->tablePassager->setModel(P.afficher());
         }
+}
+
+
+
+void MainWindow::on_pushButton_PDF_clicked()
+{
+
+ P.telechargerPDF();
+
+
+        QMessageBox::information(nullptr,QObject::tr("OK"),
+                   QObject::tr("Téléchargement terminé"), QMessageBox::Cancel);
+
+
+}
+
+void MainWindow::on_pushButton_mail_clicked()
+{
+    Ui=new Dialog(this);
+    Ui->show();
+
+}
+
+
+void MainWindow::on_pushButton_map_clicked()
+{
+    m = new mapping(this);
+
+     m->show();
 }
 

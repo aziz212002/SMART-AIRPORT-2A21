@@ -2,13 +2,14 @@
 #define PASSAGERS_H
 #include <QString>
 #include<QSqlQueryModel>
+#include<QSqlQuery>
 #include <QTableView>
 
 class passager
 {
 public:
     passager();
-    passager(QString,QString,int,int,int,int,QString,QString,int,QString);
+    passager(QString,QString,int,int,int,int,QString,QString,int,QString,QString,int);
     QString getnom_passager();
     QString getprenom_passager();
     int getage_passager();
@@ -19,6 +20,9 @@ public:
     QString getnum_siege();
     int getnb_valises();
     QString getmail();
+    QString gettype_passager();
+    int getpoids_totale();
+
     void setnom_passager(QString);
     void setprenom_passager(QString);
     void setage_passager(int);
@@ -29,11 +33,18 @@ public:
     void setnum_siege(QString);
     void setnb_valises(int);
     void setmail(QString);
+    void settype_passager(QString);
+    void setpoids_totale(int);
 
     bool ajouter();
     QSqlQueryModel* afficher();
+    QSqlQueryModel* afficher2();
+
     bool supprimer(int passeport_passager);
     bool modifier();
+
+    int verifieremail(QString);
+
     QSqlQueryModel * trieage();
     QSqlQueryModel * trievalise();
     QSqlQueryModel * triealphabet();
@@ -42,7 +53,7 @@ public:
 
 
 private:
-    int age_passager,cin_passager,passeport_passager,num_portail,nb_valises;
-    QString nom_passager,prenom_passager,num_vol,num_siege,mail;
+    int age_passager,cin_passager,passeport_passager,num_portail,nb_valises,poids_totale;
+    QString nom_passager,prenom_passager,type_passager,num_vol,num_siege,mail;
 };
 #endif // PASSAGERS_H
