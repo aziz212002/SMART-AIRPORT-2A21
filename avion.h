@@ -23,6 +23,18 @@ public:
     QSqlQueryModel * afficher();
         bool ajouter();
         bool supprimer(int);
+        bool supprimerTout();
         bool modifier(int);
+    QSqlQueryModel  * tri();
+    QSqlQueryModel*triconso();
+    QSqlQueryModel*triprix();
+    QSqlQueryModel* cherche_id(int);
+    QSqlQueryModel *recherche(QString res);
+
+    void statistique(QVector<double>* ticks,QVector<QString> *labels);
+    void CREATION_PDF();
+    int alerte();
+    //QChart * Statistique();
+
 };
 #endif // AVION_H
