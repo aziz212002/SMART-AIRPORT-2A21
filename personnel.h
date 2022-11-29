@@ -40,6 +40,12 @@ bool Ajouter();
 QSqlQueryModel* afficher();
 bool modifier();
 bool supprimer(int);
+QSqlQueryModel* Recherchepersonnel(QString);
+QSqlQueryModel* trierpersonnelparCin();
+QSqlQueryModel* trierpersonnelparAge();
+QSqlQueryModel* trierpersonnelparordrealphabetiquedunom();
+void telechargerPDF();
+/*bool login();*/
 
 };
 

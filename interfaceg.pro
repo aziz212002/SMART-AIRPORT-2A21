@@ -1,6 +1,12 @@
-QT       += core gui sql
-
+QT       += core gui sql serialport printsupport multimedia network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += sql
+QT +=charts
+QT += widgets multimedia
+QT += printsupport
+QT +=gui
+QT += widgets
+DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 CONFIG += console
@@ -17,17 +23,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     CONNECTION.cpp \
+    authentification.cpp \
     main.cpp \
     mainwindow.cpp \
-    personnel.cpp
+    personnel.cpp \
+    smtp.cpp \
+    statistique.cpp
 
 HEADERS += \
     CONECTION.h \
+    authentification.h \
     mainwindow.h \
-    personnel.h
+    personnel.h \
+    smtp.h \
+    statistique.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    statistique.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

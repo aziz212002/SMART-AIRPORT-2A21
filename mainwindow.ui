@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -211,9 +211,9 @@
       <property name="geometry">
        <rect>
         <x>490</x>
-        <y>30</y>
+        <y>10</y>
         <width>231</width>
-        <height>291</height>
+        <height>311</height>
        </rect>
       </property>
       <property name="title">
@@ -223,7 +223,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>40</y>
+         <y>90</y>
          <width>71</width>
          <height>16</height>
         </rect>
@@ -235,9 +235,9 @@
       <widget class="QLineEdit" name="lineEdit_8">
        <property name="geometry">
         <rect>
-         <x>100</x>
-         <y>40</y>
-         <width>91</width>
+         <x>110</x>
+         <y>90</y>
+         <width>81</width>
          <height>22</height>
         </rect>
        </property>
@@ -258,8 +258,8 @@
       <widget class="QPushButton" name="pushButton_3">
        <property name="geometry">
         <rect>
-         <x>120</x>
-         <y>110</y>
+         <x>130</x>
+         <y>270</y>
          <width>81</width>
          <height>28</height>
         </rect>
@@ -271,8 +271,8 @@
       <widget class="QRadioButton" name="radioButton_6">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>80</y>
+         <x>70</x>
+         <y>130</y>
          <width>97</width>
          <height>20</height>
         </rect>
@@ -286,9 +286,9 @@
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>20</y>
+        <y>10</y>
         <width>221</width>
-        <height>301</height>
+        <height>311</height>
        </rect>
       </property>
       <property name="title">
@@ -298,7 +298,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>30</y>
+         <y>80</y>
          <width>71</width>
          <height>16</height>
         </rect>
@@ -307,11 +307,11 @@
         <string>Identiant</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_9">
+      <widget class="QLineEdit" name="lineEdit_recherche">
        <property name="geometry">
         <rect>
-         <x>80</x>
-         <y>30</y>
+         <x>90</x>
+         <y>80</y>
          <width>91</width>
          <height>22</height>
         </rect>
@@ -324,7 +324,7 @@
        <property name="geometry">
         <rect>
          <x>120</x>
-         <y>100</y>
+         <y>270</y>
          <width>81</width>
          <height>28</height>
         </rect>
@@ -336,8 +336,8 @@
       <widget class="QRadioButton" name="radioButton_5">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>70</y>
+         <x>50</x>
+         <y>120</y>
          <width>97</width>
          <height>20</height>
         </rect>
@@ -347,110 +347,23 @@
        </property>
       </widget>
      </widget>
-     <widget class="QGroupBox" name="groupBox_7">
-      <property name="geometry">
-       <rect>
-        <x>600</x>
-        <y>360</y>
-        <width>271</width>
-        <height>311</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Exporter PDF</string>
-      </property>
-      <widget class="QToolButton" name="toolButton">
-       <property name="geometry">
-        <rect>
-         <x>170</x>
-         <y>80</y>
-         <width>21</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>../download.jpg</normaloff>../download.jpg</iconset>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_7">
-       <property name="geometry">
-        <rect>
-         <x>170</x>
-         <y>150</y>
-         <width>81</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Exporter</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_16">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>80</y>
-         <width>71</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Identifiant</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_13">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>80</y>
-         <width>81</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
-      <zorder>lineEdit_13</zorder>
-      <zorder>toolButton</zorder>
-      <zorder>pushButton_7</zorder>
-      <zorder>label_16</zorder>
-     </widget>
      <widget class="QGroupBox" name="groupBox_5">
       <property name="geometry">
        <rect>
-        <x>750</x>
-        <y>20</y>
-        <width>231</width>
-        <height>301</height>
+        <x>740</x>
+        <y>10</y>
+        <width>241</width>
+        <height>311</height>
        </rect>
       </property>
       <property name="title">
        <string>Trier les personnels</string>
       </property>
-      <widget class="QTextBrowser" name="textBrowser">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>40</y>
-         <width>141</width>
-         <height>121</height>
-        </rect>
-       </property>
-       <property name="html">
-        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
       <widget class="QPushButton" name="pushButton_5">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>180</y>
+         <x>150</x>
+         <y>270</y>
          <width>71</width>
          <height>28</height>
         </rect>
@@ -459,53 +372,67 @@ p, li { white-space: pre-wrap; }
         <string>Lancer Tri </string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox">
+      <widget class="QComboBox" name="comboBox_tri">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>30</x>
+         <y>80</y>
+         <width>191</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>trier personnel par Cin</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>trier personnel par ordre alphabetique du nom</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>trier personnel par Age</string>
+        </property>
+       </item>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_9">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>340</y>
+        <width>951</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Liste des personnels</string>
+      </property>
+      <widget class="QTableView" name="tableView">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
          <y>40</y>
-         <width>83</width>
-         <height>20</height>
+         <width>881</width>
+         <height>251</height>
         </rect>
-       </property>
-       <property name="text">
-        <string>Nom</string>
-       </property>
-      </widget>
-      <widget class="QCheckBox" name="checkBox_2">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>70</y>
-         <width>83</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grade</string>
-       </property>
-      </widget>
-      <widget class="QCheckBox" name="checkBox_3">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>100</y>
-         <width>83</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Age</string>
        </property>
       </widget>
      </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Mailing/PDF</string>
+     </attribute>
      <widget class="QGroupBox" name="groupBox_6">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>360</y>
-        <width>491</width>
-        <height>311</height>
+        <x>30</x>
+        <y>30</y>
+        <width>591</width>
+        <height>321</height>
        </rect>
       </property>
       <property name="title">
@@ -521,10 +448,10 @@ p, li { white-space: pre-wrap; }
         </rect>
        </property>
        <property name="text">
-        <string>Identifiant</string>
+        <string>objet</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_11">
+      <widget class="QLineEdit" name="Lineobjet">
        <property name="geometry">
         <rect>
          <x>90</x>
@@ -547,7 +474,7 @@ p, li { white-space: pre-wrap; }
         <string>Mail</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_12">
+      <widget class="QLineEdit" name="Linemail">
        <property name="geometry">
         <rect>
          <x>90</x>
@@ -555,23 +482,6 @@ p, li { white-space: pre-wrap; }
          <width>101</width>
          <height>22</height>
         </rect>
-       </property>
-      </widget>
-      <widget class="QTextBrowser" name="textBrowser_2">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>120</y>
-         <width>371</width>
-         <height>131</height>
-        </rect>
-       </property>
-       <property name="html">
-        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_15">
@@ -587,11 +497,11 @@ p, li { white-space: pre-wrap; }
         <string>Message</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_6">
+      <widget class="QPushButton" name="pb_mail">
        <property name="geometry">
         <rect>
-         <x>380</x>
-         <y>260</y>
+         <x>480</x>
+         <y>270</y>
          <width>81</width>
          <height>28</height>
         </rect>
@@ -600,45 +510,70 @@ p, li { white-space: pre-wrap; }
         <string>Envoyer</string>
        </property>
       </widget>
+      <widget class="QPlainTextEdit" name="msg">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>110</y>
+         <width>181</width>
+         <height>111</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
-    </widget>
-    <widget class="QWidget" name="tab_3">
-     <attribute name="title">
-      <string>Liste_P</string>
-     </attribute>
-     <widget class="QGroupBox" name="groupBox_9">
+     <widget class="QGroupBox" name="groupBox_7">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>30</y>
-        <width>961</width>
-        <height>601</height>
+        <x>660</x>
+        <y>320</y>
+        <width>271</width>
+        <height>251</height>
        </rect>
       </property>
       <property name="title">
-       <string>Liste des personnels</string>
+       <string>Exporter PDF</string>
       </property>
-      <widget class="QScrollBar" name="verticalScrollBar_2">
+      <widget class="QToolButton" name="toolButton">
        <property name="geometry">
         <rect>
-         <x>870</x>
-         <y>40</y>
-         <width>20</width>
-         <height>521</height>
+         <x>140</x>
+         <y>90</y>
+         <width>31</width>
+         <height>31</height>
         </rect>
        </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../download.jpg</normaloff>../download.jpg</iconset>
        </property>
       </widget>
-      <widget class="QTableView" name="tableView">
+      <widget class="QPushButton" name="pushButton_7">
        <property name="geometry">
         <rect>
-         <x>5</x>
-         <y>41</y>
-         <width>851</width>
-         <height>511</height>
+         <x>60</x>
+         <y>90</y>
+         <width>81</width>
+         <height>28</height>
         </rect>
+       </property>
+       <property name="text">
+        <string>Exporter</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_16">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>80</y>
+         <width>71</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </widget>
@@ -666,6 +601,112 @@ p, li { white-space: pre-wrap; }
          <y>40</y>
          <width>871</width>
          <height>531</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Authentification</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_8">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>110</y>
+        <width>381</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Authentification</string>
+      </property>
+      <widget class="QTextEdit" name="textEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>50</y>
+         <width>321</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;Entrer vos donnees&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>160</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>101</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="whatsThis">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>user name</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>160</y>
+         <width>113</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_8">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>300</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>se connecter</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>210</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Cin</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_6">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>210</y>
+         <width>111</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
