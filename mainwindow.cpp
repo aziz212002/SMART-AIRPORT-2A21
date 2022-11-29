@@ -10,6 +10,8 @@
 #include<QtSvg/QGraphicsSvgItem>
 #include<qrcode.h>
 #include <QMessageBox>
+#include <QDebug>
+#include "arduino.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -23,6 +25,18 @@ MainWindow::MainWindow(QWidget *parent) :
          ui->label_map->setPixmap(pixmap);
     QPixmap pixmail("C:/Users/toufa/OneDrive/Bureau/Projet QT/Icons/mail1.ico");
          ui->label_mail->setPixmap(pixmail);
+         int ret=a.connect_arduino();
+                      switch(ret){
+                      case (0): qDebug() << "arduino is available and connected to : " << a.getarduino_port_name();
+                      break;
+                      case (1) :qDebug () << "arduino is available but not connected to :" << a.getarduino_port_name ();
+                      break;
+                      case (-1): qDebug() << "arduino is not available";
+
+                      }
+
+                     // QObject:: connect (a.getserial(),SIGNAL (readyRead()), this, SLOT (update_label ())); // permet de lancer //le slot update label suite à la reception du signal readyRead (reception des données).
+                      QObject:: connect (a.getserial(),SIGNAL (readyRead()), this, SLOT ( ChercherFromArduino()));
 
 }
 
@@ -215,4 +229,22 @@ void MainWindow::on_pushButton_map_clicked()
 
      m->show();
 }
-
+void MainWindow::ChercherFromArduino(){
+    d = a.read_from_arduino();
+        qDebug() << d;
+        if (d!=" ")
+        {
+            QSqlQuery *query=new QSqlQuery;
+            query->prepare("select * from passager where passeport_passager like '%"+d+"%';");
+            if(query->exec()){
+              ui->lineEdit_recherche->setText(d);
+              P.recherche(ui->tablePassager,d);
+              if (ui->lineEdit_recherche->text().isEmpty())
+              {
+                  ui->tablePassager->setModel(P.afficher());
+              }
+            }else{
+                qDebug()<<"query is wrong";
+            }
+}
+}

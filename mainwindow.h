@@ -5,7 +5,7 @@
 #include "passagers.h"
 #include "dialog.h"
 #include "mapping.h"
-
+#include "arduino.h"
 namespace Ui {
 class MainWindow;
 }
@@ -40,6 +40,7 @@ private slots:
     void on_checkBox_3_clicked();
 
     void on_pushButton_map_clicked();
+    void ChercherFromArduino();
 
 
 private:
@@ -47,6 +48,8 @@ private:
     passager P;
     Dialog * Ui;
     mapping * m;
+    Arduino a;
+    QByteArray d;
 };
 
 #endif // MAINWINDOW_H

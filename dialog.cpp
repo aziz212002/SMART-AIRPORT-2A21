@@ -31,6 +31,9 @@ void Dialog::on_pushButton_clicked()
 
 
        smtp->sendMail(from, to, subject, email_text);
+       QMessageBox::information(nullptr, QObject::tr("mail sent"),
+                   QObject::tr(""
+                               "Click Cancel to exit."), QMessageBox::Cancel);
 }
 
 void Dialog::mailenvoye(QString nettoyer)
