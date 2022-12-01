@@ -12,12 +12,11 @@ Avion::Avion()
 {
 
 }
- Avion::Avion(int a , QString b , QString  c, QDate d, float e, float f, float k, QString g)
+ Avion::Avion(int a , QString b , QString  c, float e, float f, float k, QString g)
 {
      this->Id_avion = a ;
      this->marque= b ;
      this->type_moteur = c ;
-     this->date_vol = d;
      this->conso = e ;
      this->kilometrage = f ;
      this->prix_achat = k ;
@@ -29,12 +28,11 @@ Avion::Avion()
      model->setQuery("SELECT * FROM AVION ");
      model->setHeaderData(0,Qt::Horizontal,QObject::tr("Id_avion"));
      model->setHeaderData(1,Qt::Horizontal,QObject::tr("marque"));
-     model->setHeaderData(2,Qt::Horizontal,QObject::tr("date_vol "));
-     model->setHeaderData(3,Qt::Horizontal,QObject::tr("type_moteur"));
-     model->setHeaderData(4,Qt::Horizontal,QObject::tr("conso"));
-     model->setHeaderData(5,Qt::Horizontal,QObject::tr("kilometrage"));
-     model->setHeaderData(6,Qt::Horizontal,QObject::tr("prix_achat"));
-     model->setHeaderData(7,Qt::Horizontal,QObject::tr("etat_avion"));
+     model->setHeaderData(2,Qt::Horizontal,QObject::tr("type_moteur"));
+     model->setHeaderData(3,Qt::Horizontal,QObject::tr("conso"));
+     model->setHeaderData(4,Qt::Horizontal,QObject::tr("kilometrage"));
+     model->setHeaderData(5,Qt::Horizontal,QObject::tr("prix_achat"));
+     model->setHeaderData(6,Qt::Horizontal,QObject::tr("etat_avion"));
 
      return model;
  }
@@ -47,11 +45,10 @@ Avion::Avion()
             QString res2 = QString::number(kilometrage);
             QString res3 = QString::number(prix_achat);
 
-            query.prepare("INSERT INTO AVION(ID,MARQUE,DATEV,TYPE,CONSO,KILOM,PRIX,ETAT)""VALUES (:id,:marque,:datev,:type,:conso,:kilom,:prix,:etat_avion)");
+            query.prepare("INSERT INTO AVION(ID,MARQUE,TYPE,CONSO,KILOM,PRIX,ETAT)""VALUES (:id,:marque,:type,:conso,:kilom,:prix,:etat_avion)");
 
              query.bindValue(":id",res);
              query.bindValue(":marque",marque);
-             query.bindValue(":datev",date_vol);
              query.bindValue(":type",type_moteur);
              query.bindValue(":conso",res1);
              query.bindValue(":kilom",res2);
@@ -82,13 +79,12 @@ Avion::Avion()
          QString res1 = QString::number(conso);
          QString res2 = QString::number(kilometrage);
          QString res3 = QString::number(prix_achat);
-               query.prepare("UPDATE AVION SET MARQUE=:marque,TYPE=:type,DATEV=:datev,CONSO=:conso,KILOM=:kilom,PRIX=:prix,ETAT=:etat WHERE ID=:id  ");
+               query.prepare("UPDATE AVION SET MARQUE=:marque,TYPE=:type,CONSO=:conso,KILOM=:kilom,PRIX=:prix,ETAT=:etat WHERE ID=:id  ");
 
 
                query.bindValue(":id",res);
                query.bindValue(":marque",marque);
                query.bindValue(":type",type_moteur);
-               query.bindValue(":datev",date_vol);
                query.bindValue(":conso",res1);
                query.bindValue(":kilom",res2);
                query.bindValue(":prix",res3);
@@ -104,12 +100,11 @@ Avion::Avion()
                  model->setQuery("select * from AVION order by ID");
                  model->setHeaderData(0,Qt::Horizontal,QObject::tr("Id_avion"));
                  model->setHeaderData(1,Qt::Horizontal,QObject::tr("marque"));
-                 model->setHeaderData(2,Qt::Horizontal,QObject::tr("date_vol "));
-                 model->setHeaderData(3,Qt::Horizontal,QObject::tr("type_moteur"));
-                 model->setHeaderData(4,Qt::Horizontal,QObject::tr("conso"));
-                 model->setHeaderData(5,Qt::Horizontal,QObject::tr("kilometrage"));
-                 model->setHeaderData(6,Qt::Horizontal,QObject::tr("prix_achat"));
-                 model->setHeaderData(7,Qt::Horizontal,QObject::tr("etat_avion"));
+                 model->setHeaderData(2,Qt::Horizontal,QObject::tr("type_moteur"));
+                 model->setHeaderData(3,Qt::Horizontal,QObject::tr("conso"));
+                 model->setHeaderData(4,Qt::Horizontal,QObject::tr("kilometrage"));
+                 model->setHeaderData(5,Qt::Horizontal,QObject::tr("prix_achat"));
+                 model->setHeaderData(6,Qt::Horizontal,QObject::tr("etat_avion"));
 
 
 
@@ -122,12 +117,11 @@ Avion::Avion()
 
                model->setHeaderData(0,Qt::Horizontal,QObject::tr("Id_avion"));
                model->setHeaderData(1,Qt::Horizontal,QObject::tr("marque"));
-               model->setHeaderData(2,Qt::Horizontal,QObject::tr("date_vol "));
-               model->setHeaderData(3,Qt::Horizontal,QObject::tr("type_moteur"));
-               model->setHeaderData(4,Qt::Horizontal,QObject::tr("conso"));
-               model->setHeaderData(5,Qt::Horizontal,QObject::tr("kilometrage"));
-               model->setHeaderData(6,Qt::Horizontal,QObject::tr("prix_achat"));
-               model->setHeaderData(7,Qt::Horizontal,QObject::tr("etat_avion"));
+               model->setHeaderData(2,Qt::Horizontal,QObject::tr("type_moteur"));
+               model->setHeaderData(3,Qt::Horizontal,QObject::tr("conso"));
+               model->setHeaderData(4,Qt::Horizontal,QObject::tr("kilometrage"));
+               model->setHeaderData(5,Qt::Horizontal,QObject::tr("prix_achat"));
+               model->setHeaderData(6,Qt::Horizontal,QObject::tr("etat_avion"));
 
         return model;
 
@@ -137,14 +131,13 @@ Avion::Avion()
          QSqlQueryModel *model=new QSqlQueryModel();
          model->setQuery("select * from AVION order by PRIX");
 
-               model->setHeaderData(0,Qt::Horizontal,QObject::tr("Id_avion"));
-               model->setHeaderData(1,Qt::Horizontal,QObject::tr("marque"));
-               model->setHeaderData(2,Qt::Horizontal,QObject::tr("date_vol "));
-               model->setHeaderData(3,Qt::Horizontal,QObject::tr("type_moteur"));
-               model->setHeaderData(4,Qt::Horizontal,QObject::tr("conso"));
-               model->setHeaderData(5,Qt::Horizontal,QObject::tr("kilometrage"));
-               model->setHeaderData(6,Qt::Horizontal,QObject::tr("prix_achat"));
-               model->setHeaderData(7,Qt::Horizontal,QObject::tr("etat_avion"));
+         model->setHeaderData(0,Qt::Horizontal,QObject::tr("Id_avion"));
+         model->setHeaderData(1,Qt::Horizontal,QObject::tr("marque"));
+         model->setHeaderData(2,Qt::Horizontal,QObject::tr("type_moteur"));
+         model->setHeaderData(3,Qt::Horizontal,QObject::tr("conso"));
+         model->setHeaderData(4,Qt::Horizontal,QObject::tr("kilometrage"));
+         model->setHeaderData(5,Qt::Horizontal,QObject::tr("prix_achat"));
+         model->setHeaderData(6,Qt::Horizontal,QObject::tr("etat_avion"));
 
         return model;
     }
@@ -155,12 +148,11 @@ Avion::Avion()
                  model->setQuery("select * from AVION where ID ='"+res+"'");
                  model->setHeaderData(0,Qt::Horizontal,QObject::tr("Id_avion"));
                  model->setHeaderData(1,Qt::Horizontal,QObject::tr("marque"));
-                 model->setHeaderData(2,Qt::Horizontal,QObject::tr("date_vol "));
-                 model->setHeaderData(3,Qt::Horizontal,QObject::tr("type_moteur"));
-                 model->setHeaderData(4,Qt::Horizontal,QObject::tr("conso"));
-                 model->setHeaderData(5,Qt::Horizontal,QObject::tr("kilometrage"));
-                 model->setHeaderData(6,Qt::Horizontal,QObject::tr("prix_achat"));
-                 model->setHeaderData(7,Qt::Horizontal,QObject::tr("etat_avion"));
+                 model->setHeaderData(2,Qt::Horizontal,QObject::tr("type_moteur"));
+                 model->setHeaderData(3,Qt::Horizontal,QObject::tr("conso"));
+                 model->setHeaderData(4,Qt::Horizontal,QObject::tr("kilometrage"));
+                 model->setHeaderData(5,Qt::Horizontal,QObject::tr("prix_achat"));
+                 model->setHeaderData(6,Qt::Horizontal,QObject::tr("etat_avion"));
 
         return model;
 
@@ -173,12 +165,11 @@ Avion::Avion()
                  model->setQuery("SELECT * FROM AVION WHERE ( ID LIKE '%"+res+"%' OR CONSO LIKE '%"+res+"%' OR KILOM LIKE '%"+res+"%' OR PRIX LIKE '%"+res+"%' ) ");
                  model->setHeaderData(0,Qt::Horizontal,QObject::tr("Id_avion"));
                  model->setHeaderData(1,Qt::Horizontal,QObject::tr("marque"));
-                 model->setHeaderData(2,Qt::Horizontal,QObject::tr("date_vol "));
-                 model->setHeaderData(3,Qt::Horizontal,QObject::tr("type_moteur"));
-                 model->setHeaderData(4,Qt::Horizontal,QObject::tr("conso"));
-                 model->setHeaderData(5,Qt::Horizontal,QObject::tr("kilometrage"));
-                 model->setHeaderData(6,Qt::Horizontal,QObject::tr("prix_achat"));
-                 model->setHeaderData(7,Qt::Horizontal,QObject::tr("etat_avion"));
+                 model->setHeaderData(2,Qt::Horizontal,QObject::tr("type_moteur"));
+                 model->setHeaderData(3,Qt::Horizontal,QObject::tr("conso"));
+                 model->setHeaderData(4,Qt::Horizontal,QObject::tr("kilometrage"));
+                 model->setHeaderData(5,Qt::Horizontal,QObject::tr("prix_achat"));
+                 model->setHeaderData(6,Qt::Horizontal,QObject::tr("etat_avion"));
 
                  return model;
              }

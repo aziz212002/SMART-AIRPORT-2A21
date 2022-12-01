@@ -11,7 +11,6 @@ private :
     int Id_avion ;
     QString marque;
     QString type_moteur;
-    QDate date_vol;
     float conso;
     float kilometrage;
     float prix_achat;
@@ -19,7 +18,7 @@ private :
 
 public:
     Avion();
-    Avion(int , QString , QString ,QDate ,float ,float,float,QString);
+    Avion(int , QString , QString  ,float ,float,float,QString);
     QSqlQueryModel * afficher();
         bool ajouter();
         bool supprimer(int);

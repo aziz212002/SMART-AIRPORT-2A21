@@ -46,13 +46,12 @@ void MainWindow::on_pushButton_ajouter_avion_clicked()
     int Id_avion = ui->lineEdit_id_avion->text().toInt();
     QString marque = ui->comboBox_marque->currentText();
     QString type_moteur = ui->comboBox_type->currentText();
-    QDate Date = ui->dateEdit_vol->date();
     float consomation = ui->lineEdit_consomation->text().toFloat();
     float kilometrage = ui->lineEdit_kilometrage->text().toFloat();
     float prix_achat = ui ->lineEdit_prix->text().toFloat();
     QString etat_avion=ui->comboBox_etat->currentText();
 
-    Avion atmp (Id_avion,marque,type_moteur,Date,consomation,kilometrage,prix_achat,etat_avion);
+    Avion atmp (Id_avion,marque,type_moteur,consomation,kilometrage,prix_achat,etat_avion);
     bool test =  atmp.ajouter();
     if(test)
          {
@@ -96,12 +95,11 @@ void MainWindow::on_pushButton_clicked()
     int Id_avion =ui->lineEdit_id_avion->text().toInt();
     QString marque = ui->comboBox_marque->currentText();
     QString type_moteur = ui->comboBox_type->currentText();
-    QDate Date = ui->dateEdit_vol->date();
     float consomation = ui->lineEdit_consomation->text().toFloat();
     float kilometrage = ui->lineEdit_kilometrage->text().toFloat();
     float prix_achat = ui ->lineEdit_prix->text().toFloat();
     QString etat_avion=ui->comboBox_etat->currentText();
-    Avion a (Id_avion, marque,type_moteur,Date,consomation,kilometrage,prix_achat,etat_avion);
+    Avion a (Id_avion, marque,type_moteur,consomation,kilometrage,prix_achat,etat_avion);
     bool test =  a.modifier(Id_avion);
 
     if(test)
@@ -506,12 +504,11 @@ void MainWindow::on_Excel_clicked()
     ExportExcelObject obj(fileName, sheetName, ui->tableView_avions);
     obj.addField(0, tr("Id_avion"), "int");
     obj.addField(1, tr("marque"), "char(20)");
-    obj.addField(2, tr("date_vol"), "date");
-    obj.addField(3, tr("type_moteur"), "char(20)");
-    obj.addField(4, tr("conso"), "float");
-    obj.addField(5, tr("kilometrage"), "float");
-    obj.addField(6, tr("prix_achat"), "float");
-    obj.addField(7, tr("etat_avion"), "char(20)");
+    obj.addField(2, tr("type_moteur"), "char(20)");
+    obj.addField(3, tr("conso"), "float");
+    obj.addField(4, tr("kilometrage"), "float");
+    obj.addField(5, tr("prix_achat"), "float");
+    obj.addField(6, tr("etat_avion"), "char(20)");
 
 
 
