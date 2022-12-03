@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mapping</class>
+ <widget class="QDialog" name="mapping">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>781</width>
+    <height>753</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(239, 245, 255);</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>761</width>
+     <height>741</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="title">
+    <string>Générer carte</string>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>20</y>
+      <width>131</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Entrez un passeport</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_passeport">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>40</y>
+      <width>131</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(255, 255, 255); 
+border: 2px solid gray; 
+border-radius: 10px; 
+padding: 0 8px; 
+selection-background-color: darkgray;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>20</y>
+      <width>151</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Choisissez votre emplacement</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_emplacement">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>40</y>
+      <width>141</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Check-In area</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Services</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Administration</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Control</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Duty-free shop</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>VIP Lounge</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Entrance hall</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_pic">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>70</y>
+      <width>691</width>
+      <height>661</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_generer_map">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>30</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(255, 195, 15);
+border: 2px solid gray; 
+border-radius: 10px; 
+padding: 0 8px; 
+selection-background-color: darkgray;</string>
+    </property>
+    <property name="text">
+     <string>Génerer</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>30</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(255, 255, 255); 
+border: 2px solid gray; 
+border-radius: 10px; 
+padding: 0 8px; 
+selection-background-color: darkgray;</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
