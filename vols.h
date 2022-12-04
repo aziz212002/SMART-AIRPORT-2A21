@@ -11,11 +11,12 @@ class vols
 {
 public:
     vols();
-    vols(int,QDate,int,QString);
+    vols(int,QDate,int,QString,int);
     int getnum_vols();
     QDate getd_vols();
     int getcap_vols();
     QString getdest();
+    int getnb();
 
 
 
@@ -23,6 +24,7 @@ public:
     void setd_vols(QDate);
     void setcap_vols(int);
     void setdest(QString);
+    void setnb(int);
 
 
     bool ajoutervols();
@@ -34,10 +36,13 @@ public:
     QSqlQueryModel * triervolsParnvols();
     QSqlQueryModel * triervolsParnbplace();
     QSqlQueryModel * triervolspardate();
-
+    void telechargerPDF();
+    QSqlQueryModel * Historique(QString);
+    double ESTIMATION(  QString s);
+    QSqlQueryModel* afficherlghayb();
 
 private:
-    int num_vols,cap_vols;
+    int num_vols,cap_vols,nb;
     QString dest;
     QDate d_vols;
 };

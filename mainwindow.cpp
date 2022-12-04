@@ -1,16 +1,22 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "arduino.h"
 #include <QPdfWriter>
 #include <QPainter>
 #include <QSqlQuery>
 #include<QtCharts>
 
-#include<QPieSlice >
+#include<QPieSlice>
 #include<QPieSeries>
 #include<QPrinter>
 #include <QFileDialog>
 #include<QPrintDialog>
+#include <QPdfWriter>
+#include <QPainter>
+#include <QDesktopServices>
+#include <QPrinter>
+#include <QFileDialog>
+#include <QTextDocument>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -19,18 +25,53 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->lineEdit_n_de_vol->setValidator( new QIntValidator(0, 999999, this));
+    ui->lineEdit_nb->setValidator( new QIntValidator(0, 999999, this));
     ui->lineEdit_capacitevol->setValidator( new QIntValidator(0, 300, this));
     ui->lineEdit_numvolsupprimer->setValidator( new QIntValidator(0, 999999, this));
     ui->lineEdit_recherche->setValidator( new QIntValidator(0, 999999, this));
+    int ret=a.connect_arduino(); // lancer la connexion Ã  arduino
+        switch(ret){
+        case(0):qDebug()<< "arduino is available and connected to : "<< a.getarduino_port_name();
+            break;
+        case(1):qDebug() << "arduino is available but not connected to :" <<a.getarduino_port_name();
+           break;
+        case(-1):qDebug() << "arduino is not available";
+        }
+         QObject::connect(a.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+         //le slot update_label suite Ã  la reception du signal readyRead (reception des donnÃ©es).
 
 
 
 }
+void MainWindow::update_label()
+{
+ data="";
 
+while((a.getdata().size()<5))
+{
+    QString key;
+data=a.read_from_arduino();
+
+break;
+
+}
+if(data!=""){
+if(data.toInt()!=0)
+{int D=data.toInt();
+    qDebug() << D ;
+ a.fire();
+ ui->tableView_vols->setModel(V.affichervols());
+
+a.write_to_arduino("0");
+}};
+data="";
+}
 MainWindow::~MainWindow()
 {
     delete ui;
+
 }
+
 
 
 void MainWindow::on_pushButton_Ajoutervols_clicked()
@@ -39,7 +80,8 @@ void MainWindow::on_pushButton_Ajoutervols_clicked()
         QDate d_vols=ui->lineeditdateTimeEdit->date();
         int cap_vols=ui->lineEdit_capacitevol->text().toInt();
         QString dest=ui->lineEdit_Destination->text();
-        vols E(num_vols,d_vols,cap_vols,dest);
+        int nb=ui->lineEdit_nb->text().toInt();
+        vols E(num_vols,d_vols,cap_vols,dest,nb);
             bool test=E.ajoutervols();
             if(test)
                   {    QMessageBox::information(nullptr, QObject::tr("ajout avec succes"),
@@ -55,6 +97,7 @@ void MainWindow::on_pushButton_Ajoutervols_clicked()
                  ui->lineEdit_n_de_vol->clear();
                  ui->lineEdit_capacitevol->clear();
                  ui->lineEdit_Destination->clear();
+                 ui->lineEdit_nb->clear();
     }
 
 
@@ -94,7 +137,8 @@ void MainWindow::on_pushButton_modifiervol_clicked()
         QDate d_vols=ui->lineeditdateTimeEdit->date();
         int cap_vols=ui->lineEdit_capacitevol->text().toInt();
         QString dest=ui->lineEdit_Destination->text();
-        vols V(num_vols,d_vols,cap_vols,dest);
+        int nb=ui->lineEdit_nb->text().toInt();
+        vols V(num_vols,d_vols,cap_vols,dest,nb);
 
         bool test=V.modifiervols(V.getnum_vols(),V.getd_vols(),V.getcap_vols(),V.getdest());
 
@@ -118,7 +162,7 @@ void MainWindow::on_pushButton_modifiervol_clicked()
         ui->lineEdit_n_de_vol->clear();
         ui->lineEdit_capacitevol->clear();
         ui->lineEdit_Destination->clear();
-
+        ui->lineEdit_nb->clear();
 
     }
 
@@ -172,7 +216,7 @@ void MainWindow::on_SSS_activated()
     }
 }
 
-void MainWindow::on_pushButton_statestique_clicked()
+/*void MainWindow::on_pushButton_statestique_clicked()
 {
         QSqlQueryModel * model= new QSqlQueryModel();
                          model->setQuery("select * from VOLS where CAP_VOLS < 100 ");
@@ -224,3 +268,87 @@ void MainWindow::on_pushButton_statestique_clicked()
 
 
 }
+
+
+*/
+
+
+void MainWindow::on_pushButton_pdf_clicked()
+{
+    QPdfWriter pdf("C:\\Users\\USER\\Desktop\\QTT\\ilyessgestion\\PDF_Employe.pdf");
+
+      QPainter painter(&pdf);
+      int i = 4000;
+             painter.setPen(Qt::red);
+             painter.setFont(QFont("Time New Roman", 25));
+             painter.drawText(3000,1400,"Liste Des vols");
+             painter.setPen(Qt::black);
+             painter.setFont(QFont("Time New Roman", 15));
+             painter.drawRect(100,3000,9400,500);
+             painter.setFont(QFont("Time New Roman", 9));
+             painter.drawText(400,3300,"num_vols");
+             painter.drawText(2350,3300,"d_vols");
+             painter.drawText(4200,3300,"cap_vols");
+             painter.drawText(5400,3300,"dest");
+             painter.drawRect(100,3000,9400,9000);
+
+             QSqlQuery query;
+             query.prepare("select * from VOLS");
+             query.exec();
+             while (query.next())
+             {
+                 painter.drawText(400,i,query.value(0).toString());
+                 painter.drawText(2100,i,query.value(1).toString());
+                 painter.drawText(4300,i,query.value(2).toString());
+                 painter.drawText(5400,i,query.value(3).toString());
+
+
+                i = i + 350;
+             }
+             QMessageBox::information(this, QObject::tr("PDF Enregistré!"),
+             QObject::tr("PDF Enregistré!.\n" "Click Cancel to exit."), QMessageBox::Cancel);
+}
+void MainWindow::on_pushButton_AI_clicked()
+{   QString test=ui->test->text();
+    if(V.ESTIMATION(test)!=-1)
+  {
+
+     QString pred=QString::number(int(V.ESTIMATION(test)));
+     ui->Estimation->setText(pred);
+     ui->estimation->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+     ui->estimation->setModel(V.afficherlghayb());
+
+  }
+    else QMessageBox::critical(nullptr, QObject::tr(" NOT OK"),
+                               QObject::tr("Nom Du Base Est Incorrecte Réessayer.\n"
+                                           "Click Cancel to exit."), QMessageBox::Cancel);
+
+}
+/*void MainWindow::on_pb_excel_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),tr("Excel Files (*.xls)"));
+                if (fileName.isEmpty())
+                    return;
+
+                ExportExcelObject obj(fileName, "mydata", ui->tableView_vols);
+
+                //colums to export
+                obj.addField(1, "Nom", "char(20)");
+                obj.addField(0, "Matricule", "char(20)");
+                obj.addField(2,"Adresse", "char(20)");
+                obj.addField(3, "Email", "char(20)");
+                obj.addField(5, "Durée", "char(20)");
+                obj.addField(4, "Montant", "char(20)");
+
+                int retVal = obj.export2Excel();
+                if( retVal > 0)
+                {
+                    QMessageBox::information(this, tr("Done"),
+                                             QString(tr("%1 records exported!")).arg(retVal)
+                                             );
+                }
+
+}*/
+
+
+

@@ -17,8 +17,8 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
+      <x>0</x>
+      <y>0</y>
       <width>1071</width>
       <height>721</height>
      </rect>
@@ -165,15 +165,15 @@
         <rect>
          <x>20</x>
          <y>230</y>
-         <width>56</width>
+         <width>81</width>
          <height>16</height>
         </rect>
        </property>
        <property name="text">
-        <string>prix</string>
+        <string>nb bagages</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_prix">
+      <widget class="QLineEdit" name="lineEdit_nb">
        <property name="geometry">
         <rect>
          <x>110</x>
@@ -358,6 +358,19 @@
         </property>
        </item>
       </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>270</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Excel</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QTableView" name="tableView_vols">
       <property name="geometry">
@@ -382,44 +395,103 @@
        <string>Afficher</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_pdf">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>340</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PDF</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Page 2</string>
+      <string>AVANCE</string>
      </attribute>
-     <widget class="QGroupBox" name="groupBox_6">
+     <widget class="QGroupBox" name="groupBox_AI">
       <property name="geometry">
        <rect>
         <x>30</x>
         <y>40</y>
-        <width>291</width>
-        <height>301</height>
+        <width>901</width>
+        <height>511</height>
        </rect>
       </property>
       <property name="title">
-       <string>PDF</string>
+       <string>AI</string>
       </property>
-      <widget class="QLineEdit" name="lineEdit_numvolsupprimer_2">
+      <widget class="QPushButton" name="pushButton_AI">
        <property name="geometry">
         <rect>
-         <x>70</x>
+         <x>620</x>
          <y>50</y>
-         <width>201</width>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Estimation</string>
+       </property>
+      </widget>
+      <widget class="QTableView" name="estimation">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>110</y>
+         <width>831</width>
+         <height>311</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="test">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>50</y>
+         <width>211</width>
          <height>22</height>
         </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="Estimation">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>440</y>
+         <width>211</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>50</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>nom du tableau</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_9">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>50</y>
-         <width>40</width>
-         <height>21</height>
+         <x>430</x>
+         <y>440</y>
+         <width>171</width>
+         <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>N° vol</string>
+        <string>nm° de voyageurs a estimee</string>
        </property>
       </widget>
      </widget>

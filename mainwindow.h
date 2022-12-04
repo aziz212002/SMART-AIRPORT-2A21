@@ -3,7 +3,7 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include "vols.h"
-
+#include "arduino.h"
 namespace Ui { class MainWindow; }
 
 class MainWindow : public QMainWindow
@@ -33,10 +33,16 @@ private slots:
 
     void on_SSS_activated();
 
-    void on_pushButton_statestique_clicked();
 
+    void on_pushButton_pdf_clicked();
+
+    void on_pushButton_AI_clicked();
+
+    void update_label();
 private:
     Ui::MainWindow *ui;
     vols V;
+    Arduino a;
+    QByteArray data; // variable contenant les données reçues
 };
 #endif // MAINWINDOW_H
