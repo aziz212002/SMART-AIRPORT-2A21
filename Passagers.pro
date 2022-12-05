@@ -3,6 +3,9 @@ QT += sql
 QT += printsupport network
 QT += serialport
 
+QT += printsupport
+QT       += core gui sql charts
+QT       += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -20,6 +23,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     arduino.cpp \
+    arduinouno.cpp \
+    authentification.cpp \
     avion.cpp \
     calendrier.cpp \
     connection.cpp \
@@ -29,12 +34,17 @@ SOURCES += \
     mainwindow.cpp \
     mapping.cpp \
     passagers.cpp \
+    personnel.cpp \
+    produit.cpp \
     qcustomplot.cpp \
     qrcodegen.cpp \
-    smtp.cpp
+    smtp.cpp \
+    vols.cpp
 
 HEADERS += \
     arduino.h \
+    arduinouno.h \
+    authentification.h \
     avion.h \
     calendrier.h \
     connection.h \
@@ -43,12 +53,16 @@ HEADERS += \
     mainwindow.h \
     mapping.h \
     passagers.h \
+    personnel.h \
+    produit.h \
     qcustomplot.h \
     qrcodegen.hpp \
-    smtp.h
+    smtp.h \
+    vols.h
 
 FORMS += \
     dialog.ui \
+    dialogperso.ui \
     mainwindow.ui \
     mapping.ui
 

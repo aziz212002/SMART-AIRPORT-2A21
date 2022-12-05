@@ -1,9 +1,7 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef DIALOGP_H
+#define DIALOGP_H
 
-
-// .... AZIZ
-#include <QMainWindow>
+#include <QDialog>
 #include <QMessageBox>
 #include <QDebug>
 #include "personnel.h"
@@ -31,35 +29,49 @@
 #include <QRegExpValidator>
 #include <QDesktopServices>
 #include <QUrl>
-#include <arduino.h>
 #include <QGuiApplication>
 //#include <QQmlApplicationEngine>
 #include <QTcpSocket>
 //#include <QQuickItem>
 #include <QSystemTrayIcon>
 #include <QIntValidator>
-#include "dialog.h"
 namespace Ui {
-class MainWindow;
+class Dialog;
 }
 
-class MainWindow : public QMainWindow
+class Dialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    explicit Dialog(QWidget *parent = nullptr);
+    ~Dialog();
 
 private slots:
+    void on_pushButton_clicked();
 
-void on_pushButton_8_clicked();
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_pb_mail_clicked();
+
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_9_clicked();
 
 private:
-    Ui::MainWindow *ui;
-    Dialog * Ui;
-   // mapping * m;
-
+    Ui::Dialog *ui;
+    Personnel p;
+    QStringList files;
+    QTcpSocket*mSocket;
 };
 
-#endif // MAINWINDOW_H
+
+#endif // DIALOGP_H
